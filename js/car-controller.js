@@ -12,7 +12,8 @@ function onCarDetails(carId) {
     renderCarDetails(car)
 }
 
-function onCloseCarDetails() {
+function onCloseCarDetails(ev) {
+    ev.stopPropagation()
     renderCarList()
     const elCarDetailWarpper = document.querySelector('.car-detail-warpper')
     elCarDetailWarpper.classList.add('hidden')
@@ -28,16 +29,18 @@ function onAddCar() {
     flashMsg(`car ${car._id} has been added succsesfuly`)
 }
 
-function onUpdateCar(carId) {
+function onUpdateCar(event, carId) {
+    ev.stopPropagation()
     const speed = +prompt('speed ?')
     if (isNaN(speed)) return alert('Invalid speed, please use numbers only')
     updateCar(carId, speed)
-    onCloseCarDetails()
+    onCloseCarDetails(event)
     renderCarList()
     flashMsg(`car ${carId} has been updated succsesfuly`)
 }
 
-function onRemoveCar(carId) {
+function onRemoveCar(ev, carId) {
+    ev.stopPropagation()
     removeCar(carId)
     renderCarList()
     flashMsg(`car ${carId} has been removed succsesfuly`)
@@ -55,7 +58,8 @@ function onSetSortBy(value) {
     renderCarList()
 }
 
-function onSetCarRate(carId, value) {
+function onSetCarRate(ev, carId, value) {
+    ev.stopPropagation()
     const car = setCarRate(carId, value)
     renderCarDetails(car)
 }
@@ -74,7 +78,7 @@ function renderCarList() {
         <h4>Rate: ${getRateHTML(car.rate)}</h4>
         <div class="flex row car-btn-container">
         <button onclick="onCarDetails('${car._id}')">Details</button>
-        <button onclick="onRemoveCar('${car._id}')">Remove</button>
+        <button onclick="onRemoveCar(event, '${car._id}')">Remove</button>
         </div>
         </div>
         </div>
@@ -91,15 +95,15 @@ function renderCarDetails(car) {
         <h4>Vendor: ${car.vendor}</h4>
         <h4>Speed: ${car.speed}</h4>
         <div class="flex row rate-container">
-        <button class="rate-btn" onclick="onSetCarRate('${car._id}', -1)">-</button>
+        <button class="rate-btn" onclick="onSetCarRate(event,'${car._id}', -1)">-</button>
         <h4>Rate: ${getRateHTML(car.rate)}</h4>
-        <button class="rate-btn" onclick="onSetCarRate('${car._id}', 1)">+</button>
+        <button class="rate-btn" onclick="onSetCarRate(event,'${car._id}', 1)">+</button>
         </div>
         <div class="flex row car-btn-container">
-        <button onclick="onUpdateCar('${car._id}')">Update</button>
-        <button onclick="onRemoveCar('${car._id}')">Remove</button>
+        <button onclick="onUpdateCar(event,'${car._id}')">Update</button>
+        <button onclick="onRemoveCar(event,'${car._id}')">Remove</button>
         </div>
-        <button onclick="onCloseCarDetails()">Close</button>
+        <button onclick="onCloseCarDetails(event)">Close</button>
         </div>
     </section>`
     elCarDetailWarpper.innerHTML = strHtml
