@@ -140,7 +140,7 @@ main {
 .car-details {
     top: 50%;
     left: 50%;
-    height: 50vh;
+    height: 60vh;
     align-items: center;
     border-radius: 10px;
     border: 2px solid black;
@@ -149,9 +149,35 @@ main {
     transform: translate(-50%, -50%);
 }
 
+.details-info {
+    flex: 0.5;
+    width: 50vw;
+    align-self: center;
+    justify-content: space-around;
+}
+
+.rate-container {
+    align-items: center;
+    justify-content: space-around;
+}
+
+.rate-btn {
+    flex: 1;
+    border: none;
+    height: 100%;
+    background: none;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
 .star {
     cursor: default;
     color: lightgoldenrodyellow;
+}
+
+.car-btn-container {
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .car-list {

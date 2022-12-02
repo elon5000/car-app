@@ -91,7 +91,7 @@ function renderCarDetails(car) {
     const elCarDetailWarpper = document.querySelector('.car-detail-warpper')
     const strHtml = `<section class="main-layout flex column absolute car-details">
         <img src="imgs/${car.vendor}.jpg" alt="No vendor found"/>
-        <div class="flex column car-info">
+        <div class="flex column details-info">
         <h4>Vendor: ${car.vendor}</h4>
         <h4>Speed: ${car.speed}</h4>
         <div class="flex row rate-container">
