@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="full-layout flex column" onload="onInit()">
+    <header class="full-layout flex">
+        <div class="main-layout flex row header-container">
+            <div class="logo-container">
+                <h3 title="Cars logo" class="logo">Cars</h3>
+            </div>
+        </div>
+    </header>
+    <main class="flex column">
+        <div class="fixed full-layout hidden car-detail-warpper"></div>
+        <div class="fixed full-layout hidden user-message-warpper"></div>
+        <div class="main-layout flex column relative main-container">
+            <section class="flex row utils">
+                <button class="add-car-btn" onclick="onAddCar()">Add car</button>
+                <div class="filter-container">
+                    <label for="filter-input">Filter</label>
+                    <select class="vendor-select" id="filter-input" onchange="onSetFilterBy('vendor', this)"></select>
+                    <label for="min-speed">Min speed</label>
+                    <input type="range" id="min-speed" min="0" max="140" value="0" onchange="onSetFilterBy('minSpeed', this)" />
+                    <label for="max-speed">Max speed</label>
+                    <input type="range" id="min-speed" min="0" max="140" value="0" onchange="onSetFilterBy('maxSpeed', this)" />
+                    <label for="sort-by">Sort by</label>
+                    <select class="sort-by" id="sort-by" onchange="onSetSortBy(this.value)">
+                        <option value=""></option>
+                        <option value="vendor">Vendor</option>
+                        <option value="speed">Speed</option>
+                        <option value="rate">Rate</option>
+                    </select>
+                </div>
+            </section>
+            <section class="flex row car-list"></section>
+        </div>
+    </main>
+    <footer class="flex row">
+        <span class="copyrights">Cofferights ©2022</span>
+    </footer>
+    <script src="js/services/util-service.js"></script>
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/services/car-service.js"></script>
+    <script src="js/car-controller.js"></script>
+</body>
+
+</html>
