@@ -65,7 +65,6 @@ header {
 }
 
 .logo {
-    cursor: pointer;
     font-size: 1.8rem;
     color: rgb(243, 235, 250);
 }
@@ -102,18 +101,32 @@ main {
     transform: translate(-50%, -50%);
 }
 
+.utils {
+    flex: 0.14;
+    border-radius: 10px;
+    align-items: center;
+    color: rgb(203, 187, 220);
+    background: rgb(23, 13, 33);
+    justify-content: space-around;
+}
+
 .add-car-btn {
     padding: 4px;
-    margin-bottom: 4px;
     cursor: pointer;
     font-size: 1.2rem;
     border-radius: 8px;
-    color: rgb(198, 160, 235);
-    background: rgb(41, 11, 71);
+    color: rgb(41, 11, 71);
+    background: rgb(198, 160, 235);
 }
 
 .add-car-btn:hover {
     background-color: rgb(77, 58, 96);
+}
+
+.filter-warpper {
+    flex: 0.54;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .car-detail-warpper {
@@ -162,9 +175,10 @@ main {
 
 .car-details-container {
     flex: 1;
-    flex-basis: 50%;
     padding: 4px;
+    flex-basis: 50%;
     min-width: 200px;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
     background: rebeccapurple;

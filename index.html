@@ -22,15 +22,24 @@
         <div class="fixed full-layout hidden user-message-warpper"></div>
         <div class="main-layout flex column relative main-container">
             <section class="flex row utils">
-                <button class="add-car-btn" onclick="onAddCar()">Add car</button>
-                <div class="filter-container">
-                    <label for="filter-input">Filter</label>
-                    <select class="vendor-select" id="filter-input" onchange="onSetFilterBy('vendor', this)"></select>
-                    <label for="min-speed">Min speed</label>
-                    <input type="range" id="min-speed" min="0" max="140" value="0" onchange="onSetFilterBy('minSpeed', this)" />
-                    <label for="max-speed">Max speed</label>
-                    <input type="range" id="min-speed" min="0" max="140" value="0" onchange="onSetFilterBy('maxSpeed', this)" />
-                    <label for="sort-by">Sort by</label>
+                <button class="add-car-btn" onclick="onAddCar()">Add</button>
+                <div class="flex row filter-warpper">
+                    <div class="flex column filter-container">
+                        <label for="filter-input">Filter</label>
+                        <select class="vendor-select" id="filter-input"
+                            onchange="onSetFilterBy('vendor', this)"></select>
+                    </div>
+                    <div class="flex column range-container">
+                        <label for="min-speed">Min speed</label>
+                        <input type="range" id="min-speed" min="0" max="140" value="0"
+                            onchange="onSetFilterBy('minSpeed', this)" />
+                        <label for="max-speed">Max speed</label>
+                        <input type="range" id="min-speed" min="0" max="140" value="0"
+                            onchange="onSetFilterBy('maxSpeed', this)" />
+                    </div>
+                </div>
+                <div class="flex column sort-select-container">
+                    <label for="sort-by">Sort</label>
                     <select class="sort-by" id="sort-by" onchange="onSetSortBy(this.value)">
                         <option value=""></option>
                         <option value="vendor">Vendor</option>
