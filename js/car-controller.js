@@ -71,7 +71,7 @@ function renderCarList() {
     const strHTMLs = cars.map(car => {
         return `
         <div class="flex column car-details-container">
-        <img src="imgs/${car.vendor}.jpg" />
+        <img src="./imgs/${car.vendor}.jpg" />
         <div class="flex column car-info">
         <h4>Vendor: ${car.vendor}</h4>
         <h4>Speed: ${car.speed}</h4>
@@ -90,7 +90,7 @@ function renderCarList() {
 function renderCarDetails(car) {
     const elCarDetailWarpper = document.querySelector('.car-detail-warpper')
     const strHtml = `<section class="main-layout flex column absolute car-details">
-        <img src="imgs/${car.vendor}.jpg" alt="No vendor found"/>
+        <img src="./imgs/${car.vendor}.jpg" alt="No vendor found"/>
         <div class="flex column details-info">
         <h4>Vendor: ${car.vendor}</h4>
         <h4>Speed: ${car.speed}</h4>
