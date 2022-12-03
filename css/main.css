@@ -65,6 +65,7 @@ header {
 }
 
 .logo {
+    cursor: default;
     font-size: 1.8rem;
     color: rgb(243, 235, 250);
 }

@@ -53,7 +53,9 @@ function onSetFilterBy(key, elInput) {
     renderCarList()
 }
 
-function onSetSortBy(value) {
+function onSetSortBy(elInput) {
+    const value = elInput.value
+    elInput.title = value
     setSortBy(value)
     renderCarList()
 }
@@ -71,14 +73,14 @@ function renderCarList() {
     const strHTMLs = cars.map(car => {
         return `
         <div class="flex column car-details-container">
-        <img src="./imgs/${car.vendor}.jpg" />
+        <img title="Car image" src="./imgs/${car.vendor}.jpg" alt="Car image" />
         <div class="flex column car-info">
-        <h4>Vendor: ${car.vendor}</h4>
-        <h4>Speed: ${car.speed}</h4>
-        <h4>Rate: ${getRateHTML(car.rate)}</h4>
+        <h4 title="Vendor">Vendor: ${car.vendor}</h4>
+        <h4 title="Speed">Speed: ${car.speed}</h4>
+        <h4 title="Rate">Rate: ${getRateHTML(car.rate)}</h4>
         <div class="flex row car-btn-container">
-        <button onclick="onCarDetails('${car._id}')">Details</button>
-        <button onclick="onRemoveCar(event, '${car._id}')">Remove</button>
+        <button title="Car details" onclick="onCarDetails('${car._id}')">Details</button>
+        <button title="Remove car" onclick="onRemoveCar(event, '${car._id}')">Remove</button>
         </div>
         </div>
         </div>
@@ -114,9 +116,9 @@ function renderVendors() {
     const vendors = getVendors()
     const elVendorSelect = document.querySelector('.vendor-select')
     const strHTMLs = vendors.map(vendor => {
-        return `<option value="${vendor}">${vendor}</option>`
+        return `<option title="${vendor}" value="${vendor}">${vendor}</option>`
     })
-    elVendorSelect.innerHTML = '<option value="">All</option>' + strHTMLs.join('')
+    elVendorSelect.innerHTML = '<option title="All" value="">All</option>' + strHTMLs.join('')
 }
 
 function getRateHTML(rate) {
