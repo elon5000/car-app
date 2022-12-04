@@ -53,7 +53,7 @@ function getMaxRate() {
 }
 
 function getMaxPageSize() {
-    return Math.floor(gCars.length / PAGE_SIZE)
+    return Math.ceil(getCars().length / PAGE_SIZE)
 }
 
 function setCarRate(carId, value) {
@@ -64,7 +64,8 @@ function setCarRate(carId, value) {
 }
 
 function setFilterBy(key, value) {
-    gFilterBy[key] = value
+    gFilterBy[key] = (key === 'vendor') ? value : +value
+    return gFilterBy
 }
 
 function setSortBy(value) {

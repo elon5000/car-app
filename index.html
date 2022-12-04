@@ -26,15 +26,15 @@
                 <div class="flex row filter-warpper">
                     <div class="flex column filter-container">
                         <label title="Filter by" for="filter-input">Filter</label>
-                        <select title="All" class="vendor-select" id="filter-input"
+                        <select title="All" class="vendor-filter" id="filter-input"
                             onchange="onSetFilterBy('vendor', this)"></select>
                     </div>
                     <div class="flex column range-container">
                         <label title="Filter by minimun speed" for="min-speed">Min speed</label>
-                        <input title="0" type="range" id="min-speed" min="0" max="140" value="0"
+                        <input title="0" class="min-speed" type="range" id="min-speed" min="0" max="140" value="0"
                             onchange="onSetFilterBy('minSpeed', this)" />
                         <label title="Filter by maximum speed" for="max-speed">Max speed</label>
-                        <input title="0" type="range" id="min-speed" min="0" max="140" value="0"
+                        <input title="0" class="max-speed" type="range" id="min-speed" min="0" max="140" value="0"
                             onchange="onSetFilterBy('maxSpeed', this)" />
                     </div>
                 </div>
@@ -61,7 +61,7 @@
     <script src="js/services/util-service.js"></script>
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/car-service.js"></script>
-    <script src="js/car-controller.js"></script>
+    <script src="js/controllers/car-controller.js"></script>
 </body>
 
 </html>
