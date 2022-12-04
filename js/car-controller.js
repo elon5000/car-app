@@ -27,12 +27,12 @@ function onAddCar() {
     flashMsg(`car ${car._id} has been added succsesfuly`)
 }
 
-function onUpdateCar(event, carId) {
+function onUpdateCar(ev, carId) {
     ev.stopPropagation()
     const speed = +prompt('speed ?')
     if (isNaN(speed)) return alert('Invalid speed, please use numbers only')
     updateCar(carId, speed)
-    onCloseCarDetails(event)
+    onCloseCarDetails(ev)
     renderCarList()
     flashMsg(`car ${carId} has been updated succsesfuly`)
 }
