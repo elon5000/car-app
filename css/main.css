@@ -181,6 +181,22 @@ main {
     justify-content: space-evenly;
 }
 
+.page-btn-container {
+    justify-content: space-between;
+}
+
+.page-btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: none;
+    font-size: 1.2rem;
+}
+
+.page-btn:hover {
+    color: rgb(76, 22, 131);
+}
+
 .car-list {
     flex: 1;
     flex-wrap: wrap;
@@ -210,22 +226,6 @@ main {
     justify-content: center;
     background: rebeccapurple;
     border: 2px solid rgb(30, 15, 45);
-}
-
-.page-btn-container {
-    justify-content: space-between;
-}
-
-.page-btn {
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    background: none;
-    font-size: 1.2rem;
-}
-
-.page-btn:hover {
-    color: rgb(76, 22, 131);
 }
 
 footer {

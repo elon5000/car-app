@@ -64,11 +64,12 @@ function onSetCarRate(ev, carId, value) {
     renderCarDetails(car)
 }
 
-function onSetPageIdx(elButton, value) {
+function onSetPageIdx(value) {
     const pageIdx = setPageIdx(value)
-    // if ((value === -1 && pageIdx === 0) ||
-    //     value === 1 && pageIdx === getMaxPageSize()) elButton.disabled = true
-    // else elButton.disabled = false
+    const elPrevBtn = document.querySelector('.prev-btn')
+    const elNextBtn = document.querySelector('.next-btn')
+    elPrevBtn.disabled = (pageIdx === 0) ? true : false
+    elNextBtn.disabled = (pageIdx === getMaxPageSize()) ? true : false
     renderCarList()
 }
 

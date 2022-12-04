@@ -53,7 +53,7 @@ function getMaxRate() {
 }
 
 function getMaxPageSize() {
-    return Math.ceil(gCars.length / PAGE_SIZE)
+    return Math.floor(gCars.length / PAGE_SIZE)
 }
 
 function setCarRate(carId, value) {
@@ -72,7 +72,7 @@ function setSortBy(value) {
 }
 
 function setPageIdx(value) {
-    gPageIdx = ((gPageIdx + value) < 0 || (gPageIdx + value) >= getMaxPageSize()) ? gPageIdx : gPageIdx + value
+    gPageIdx = ((gPageIdx + value) < 0 || (gPageIdx + value) > getMaxPageSize()) ? gPageIdx : gPageIdx + value
     return gPageIdx
 }
 
