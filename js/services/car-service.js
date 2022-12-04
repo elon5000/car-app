@@ -1,6 +1,7 @@
 'use strict'
 
 const MAX_RATE = 5
+const PAGE_SIZE = 4
 const DB_KEY = 'car_db'
 const VENDORS = ['Audi', 'Subaro', 'Fiat', 'Seat', 'Toyota']
 const gFilterBy = { vendor: '', minSpeed: -Infinity, maxSpeed: Infinity }
@@ -8,6 +9,7 @@ const gFilterBy = { vendor: '', minSpeed: -Infinity, maxSpeed: Infinity }
 let gCars = loadFromLocalStorage(DB_KEY) || _createCars()
 
 let gSortBy = null
+let gPageIdx = 0
 
 function addCar(vendor, speed) {
     const car = _createCar(vendor, speed)
@@ -34,8 +36,8 @@ function getCars() {
             car.speed >= gFilterBy.minSpeed &&
             car.speed <= gFilterBy.maxSpeed
     })
-    cars.sort(((car1, car2) =>_sortCars(car1, car2)))
-    return cars
+    cars.sort(((car1, car2) => _sortCars(car1, car2)))
+    return cars.slice((gPageIdx * PAGE_SIZE), (gPageIdx + 1) * PAGE_SIZE)
 }
 
 function getCarById(carId) {
@@ -48,6 +50,10 @@ function getVendors() {
 
 function getMaxRate() {
     return MAX_RATE
+}
+
+function getMaxPageSize() {
+    return Math.ceil(gCars.length / PAGE_SIZE)
 }
 
 function setCarRate(carId, value) {
@@ -65,9 +71,14 @@ function setSortBy(value) {
     gSortBy = value
 }
 
+function setPageIdx(value) {
+    gPageIdx = ((gPageIdx + value) < 0 || (gPageIdx + value) > getMaxPageSize()) ? gPageIdx : gPageIdx + value
+    return gPageIdx
+}
+
 function _sortCars(car1, car2) {
     if (gSortBy === 'vendor') return car1.vendor.localeCompare(car2.vendor)
-    else return car2[gSortBy] - car1[gSortBy] 
+    else return car2[gSortBy] - car1[gSortBy]
 }
 
 function _createCars(amount = 6) {

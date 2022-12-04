@@ -64,6 +64,14 @@ function onSetCarRate(ev, carId, value) {
     renderCarDetails(car)
 }
 
+function onSetPageIdx(elButton, value) {
+    const pageIdx = setPageIdx(value)
+    // if ((value === -1 && pageIdx === 0) ||
+    //     value === 1 && pageIdx === getMaxPageSize()) elButton.disabled = true
+    // else elButton.disabled = false
+    renderCarList()
+}
+
 function renderCarList() {
     const elCarList = document.querySelector('.car-list')
     const cars = getCars()
@@ -90,7 +98,7 @@ function renderCarList() {
 function renderCarDetails(car) {
     const elCarDetailWarpper = document.querySelector('.car-detail-warpper')
     const strHtml = `<section class="main-layout flex column absolute car-details">
-        <img src="imgs/${car.vendortoLowerCase()}.jpg" alt="No vendor found"/>
+        <img src="imgs/${car.vendor.toLowerCase()}.jpg" alt="No vendor found"/>
         <div class="flex column details-info">
         <h4>Vendor: ${car.vendor}</h4>
         <h4>Speed: ${car.speed}</h4>

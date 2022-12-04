@@ -212,6 +212,22 @@ main {
     border: 2px solid rgb(30, 15, 45);
 }
 
+.page-btn-container {
+    justify-content: space-between;
+}
+
+.page-btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: none;
+    font-size: 1.2rem;
+}
+
+.page-btn:hover {
+    color: rgb(76, 22, 131);
+}
+
 footer {
     flex: 0.08;
     align-items: center;
