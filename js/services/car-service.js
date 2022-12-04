@@ -72,7 +72,7 @@ function setSortBy(value) {
 }
 
 function setPageIdx(value) {
-    gPageIdx = ((gPageIdx + value) < 0 || (gPageIdx + value) > getMaxPageSize()) ? gPageIdx : gPageIdx + value
+    gPageIdx = ((gPageIdx + value) < 0 || (gPageIdx + value) >= getMaxPageSize()) ? gPageIdx : gPageIdx + value
     return gPageIdx
 }
 
