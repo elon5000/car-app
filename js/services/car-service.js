@@ -1,5 +1,6 @@
 'use strict'
 
+const MAX_RATE = 5
 const DB_KEY = 'car_db'
 const VENDORS = ['Audi', 'Subaro', 'Fiat', 'Seat', 'Toyota']
 const gFilterBy = { vendor: '', minSpeed: -Infinity, maxSpeed: Infinity }
@@ -43,6 +44,10 @@ function getCarById(carId) {
 
 function getVendors() {
     return VENDORS
+}
+
+function getMaxRate() {
+    return MAX_RATE
 }
 
 function setCarRate(carId, value) {

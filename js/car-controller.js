@@ -1,7 +1,5 @@
 'use strict'
 
-const MAX_RATE = 5
-
 function onInit() {
     renderCarList()
     renderVendors()
@@ -73,7 +71,7 @@ function renderCarList() {
     const strHTMLs = cars.map(car => {
         return `
         <div class="flex column car-details-container">
-        <img title="Car image" src="./imgs/${car.vendor}.jpg" alt="Car image" />
+        <img title="Car image" src="imgs/${car.vendor.toLowerCase()}.jpg" alt="Car image" />
         <div class="flex column car-info">
         <h4 title="Vendor">Vendor: ${car.vendor}</h4>
         <h4 title="Speed">Speed: ${car.speed}</h4>
@@ -92,7 +90,7 @@ function renderCarList() {
 function renderCarDetails(car) {
     const elCarDetailWarpper = document.querySelector('.car-detail-warpper')
     const strHtml = `<section class="main-layout flex column absolute car-details">
-        <img src="./imgs/${car.vendor}.jpg" alt="No vendor found"/>
+        <img src="imgs/${car.vendortoLowerCase()}.jpg" alt="No vendor found"/>
         <div class="flex column details-info">
         <h4>Vendor: ${car.vendor}</h4>
         <h4>Speed: ${car.speed}</h4>
@@ -126,7 +124,7 @@ function getRateHTML(rate) {
     for (let i = 0; i < rate; i++) {
         rateHTML += '<span class="star">★</span>'
     }
-    for (let i = 0; i < (MAX_RATE - rate); i++) {
+    for (let i = 0; i < (getMaxRate() - rate); i++) {
         rateHTML += '<span class="star">☆</span>'
     }
     rateHTML += '</span>'
