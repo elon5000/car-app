@@ -31,13 +31,17 @@ function removeCar(carId) {
 }
 
 function getCars() {
-    const cars = gCars.filter(car => {
+    const cars = getFilteredCars()
+    cars.sort(((car1, car2) => _sortCars(car1, car2)))
+    return cars.slice((gPageIdx * PAGE_SIZE), (gPageIdx + 1) * PAGE_SIZE)
+}
+
+function getFilteredCars() {
+    return gCars.filter(car => {
         return car.vendor.includes(gFilterBy.vendor) &&
             car.speed >= gFilterBy.minSpeed &&
             car.speed <= gFilterBy.maxSpeed
     })
-    cars.sort(((car1, car2) => _sortCars(car1, car2)))
-    return cars.slice((gPageIdx * PAGE_SIZE), (gPageIdx + 1) * PAGE_SIZE)
 }
 
 function getCarById(carId) {
@@ -53,7 +57,7 @@ function getMaxRate() {
 }
 
 function getMaxPageSize() {
-    return Math.ceil(getCars().length / PAGE_SIZE)
+    return Math.ceil(getFilteredCars().length / PAGE_SIZE)
 }
 
 function setCarRate(carId, value) {

@@ -74,7 +74,7 @@ function onSetPageIdx(value) {
     const elNextBtn = document.querySelector('.next-btn')
     elPrevBtn.disabled = (pageIdx === 0) ? true : false
     console.log(getMaxPageSize());
-    elNextBtn.disabled = (pageIdx === getMaxPageSize()) ? true : false
+    elNextBtn.disabled = (pageIdx === getMaxPageSize() - 1) ? true : false
     _renderCarList()
 }
 
